@@ -11,18 +11,24 @@
 <body>
     <div class="header">
         <h3>Assignment 6 &laquo; Data Visualization Dashboard &raquo;</h3>
+        <h4><center>Two barplots, one histogram</center></h4> 
     </div>
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
     <div class="row">
         <div class="col-lg-6">
+            <button type="button" class="btn btn-info" onclick="setData(0, 'genre')">Movies</button>
+            <button type="button" class="btn btn-info" onclick="setData(1, 'genre')">Shows</button>
             <div id="graph1"></div>
-            <div id="graph2"></div><br/>
+            <svg></svg>
         </div>
         <div class="col-lg-6">
-            <div id="graph3"></div>
         </div>
     </div>
+
+    
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>
+    <!-- <script type="text/javascript" src="scatter.js"></script> -->
+    <script type="text/javascript" src="histogram.js"></script>
 </body>
 </html>

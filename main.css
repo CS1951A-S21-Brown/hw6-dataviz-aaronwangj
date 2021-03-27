@@ -9,4 +9,30 @@
     text-align: center;
 }
 
+h4 {
+    text-align: center;
+  }
+  
+button:focus {
+    outline: 0 !important;
+}
+svg {
+    display: block;
+    margin: 0 auto;
+    font: 10px sans-serif;
+}
+.tooltip {
+    position: absolute;
+    font-size: 12px;
+    min-width: 100px;
+    padding: 10px;
+    width:  auto;
+    height: auto;
+}
+
+.button {
+  background-color: #E50914;
+}
+
+
 /* Include any custom CSS styling here! */
