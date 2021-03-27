@@ -11,24 +11,83 @@
 <body>
     <div class="header">
         <h3>Assignment 6 &laquo; Data Visualization Dashboard &raquo;</h3>
-        <h4><center>Two barplots, one histogram</center></h4> 
+        <h4><center>4 Total Graphs: 3 Barplots, 1 Histogram</center></h4> 
+        <h4><center>2 Unique Graphs: Barplot(Ranking) and Histogram(Distribution)</center></h4> 
+        <h4><center>Interactive Elements: Buttons</center></h4> 
+        <h4><center>Tooltip: Histogram</center></h4> 
     </div>
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
     <div class="row">
+        <svg></svg>
         <div class="col-lg-6">
             <button type="button" class="btn btn-info" onclick="setData(0, 'genre')">Movies</button>
             <button type="button" class="btn btn-info" onclick="setData(1, 'genre')">Shows</button>
             <div id="graph1"></div>
-            <svg></svg>
+            <button type="button" class="btn btn-info" onclick="setData1(0, 'year')">Highest</button>
+            <button type="button" class="btn btn-info" onclick="setData1(1, 'year')">Lowest</button>
+            <div id="graph2"></div>
+            <button type="button" class="btn btn-info" onclick="setData3(0, 'pair')">Highest</button>
+            <button type="button" class="btn btn-info" onclick="setData3(1, 'pair')">Lowest</button>
+            <div id="graph3"></div>
         </div>
         <div class="col-lg-6">
         </div>
     </div>
-
     
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>
     <!-- <script type="text/javascript" src="scatter.js"></script> -->
     <script type="text/javascript" src="histogram.js"></script>
+    <script type="text/javascript" src="another.js"></script>
+    <script type="text/javascript" src="another_one.js"></script>
 </body>
+
+<b>Describe how your dashboard answers the questions presented. 
+You don't have to address every question directly, but should at a high level address the main questions. (10 points)</b><br>
+My first bar graph answers the boss's first question on the number titles per genre by presenting the most popular and least popular genres 
+on Netflix. <br> More specifically, I group the content by movies and shows in order for the user to better understand the data, since 
+movies and shows often have different genres (ex. action vs. docuseries). <br>
+
+My second bar graph answers the boss's second question on the average runtime of movies by release year by presenting the release years with the 
+longest and shortest run times. I only do this visualization on movies as movies and shows have different duration metrics (minutes vs. seasons)
+<br>
+
+My third bar graph answers the boss's third question on the top actor-director pairs by ranking the best frequently working director-actor pairs in movies 
+on Netflix by the number of movies made together. <br>
+
+And finally, the histogram doesn't answer any question specifically but I thought it was interesting to see the number of total content releases per year.
+
+
+
+
+<br>
+<b>List 3 reasons why D3 was helpful and improved your visualization (6 points)</b><br>
+1. D3 is extremely flexible in visual styling, which allows me to customize the graphs the way I want them. For example, I can easily change the font, color, backgrounds, etc. of the graph. <br>
+2. D3 was helpful in that there was a lot of online documentation regarding what I needed to do to get the visualization the way I wanted it to. Furthermore, because it is widely used, there are a lot of great examples to look at and learn from.<br>
+3. D3 is extensible in that it isn't data dependent; that is, I can make a visualization for one data set, and then input another data set of the same format and the visualization would work on this new data set. This is great for making a lot of similar visualizations on different data. <br>
+
+
+<br>
+<b>List 3 reasons why D3 would not be the best tool for creating a visualization (6 points)</b><br>
+1. D3 would not be the best tool for creating a visualization if one does not understand JS, HTML, or CSS. For example, I had to spend a lot of time learning JS before I could understand how to use D3 to my advantage.<br>
+2. D3 would not be the best tool for creating a visualization if you only need a simple graph without much customization. Programs like Microsoft Excel already provide intuitive GUIs for cookie-cutter graphs that may be enough for some people.<br>
+3. D3 would not be the best tool for creating a visualization if the visualization is not meant to be done on a webpage. A lot of other frameworks such as ggplot in R and Matplotlib in Python provide arguably better support for data visualizations in realms outside of web development, such as in machine learning, computer vision, etc.<br>
+<br>
+
+
+
+<b>Evaluate the accessibility of your dashboard based on the readings in the “Before you begin” section. What kinds of users might find this dashboard accessible and who might have more difficulty? What additional actions might you take to make this dashboard more accessible to all audiences? Your response should refer to at least one of the readings and be about 1 paragraph.</b><br>
+Those who are not visually-impaired may find this dashboard much more accessible than those who are visually-impaired. Thus, actions should be taken to ensure that this dashboard is more accessible for these people. From “A Comprehensive Guide to Accessible Data Visualization," I learned that many visually-impaired people rely on screen readers.
+Hence, I should write a brief summary of the data visualization's finding under each plot in order for the screen reader to read this to the user. My dashboard may also give greater difficulty to those who are color-blind, and thus may not completely understand the 
+visualizations I've created. In this case, as noted in “Why Accessibility Is at the Heart of Data Visualization,” I should include a link to the csv file of the data in order for the user to take a better look at the data themselves.<br>
+
+<b>Reflect on the stages of your design and implementation process when you could have taken steps to make your dashboard more accessible to all audiences. What are some factors that kept you from taking these steps? (a few sentences)</b> <br>
+Indeed, I should have taken these steps to make my dashboard more accessible to all audiences during the design and implementation process. As noted in the question however, there were some factors that inhibited me from doing so. 
+The greatest of the factors is my lack of knowledge; for example, even though I should have provided a link to the data I used, I didn't know how to link a file to a webpage in HTML. Another factor that inhibited me from doing so was 
+my lack of familiarity with the data set to begin with. If I had better known the structure of the data, its features, and intuition for general trends, I could have written hypotheses of the trends and additional summaries at the end, which 
+would have been beneficial to the visually-impaired who utilize screen readers.
+
+<br>
+
+
 </html>

@@ -6,9 +6,9 @@ const NUM_EXAMPLES = 20;
 let filenames = ["../data/movie_genres.csv", "../data/show_genres.csv"];
 
 // Assumes the same graph width, height dimensions as the example dashboard. Feel free to change these if you'd like
-let graph_1_width = (MAX_WIDTH / 2) + 100, graph_1_height = 350;
-let graph_2_width = (MAX_WIDTH / 2) - 10, graph_2_height = 275;
-let graph_3_width = MAX_WIDTH / 2, graph_3_height = 575;
+let graph_1_width = (MAX_WIDTH / 2) + 200, graph_1_height = 350;
+let graph_2_width = (MAX_WIDTH / 2) + 100, graph_2_height = 275;
+let graph_3_width = MAX_WIDTH / 2 + 80, graph_3_height = 575;
 
 
 /**

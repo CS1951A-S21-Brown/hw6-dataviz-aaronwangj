@@ -47,7 +47,7 @@ let mouseover = function(d) {
     // Show the tooltip and set the position relative to the event X and Y location
     tooltip.html(html)
         .style("left", `${(d3.event.pageX)-15}px`)
-        .style("top", `${650 + y1(d.length)}px`)
+        .style("top", `${1665 + y1(d.length)}px`)
         .transition()
         .duration(100)
         .style("opacity", 0.9);
@@ -59,7 +59,7 @@ let mouseover = function(d) {
 let mouseout = function(d) {
   // Set opacity back to 0 to hide
   tooltip.transition()
-      .duration(200)
+      .duration(100)
       .style("opacity", 0);
       d3.select(this).transition()
       .duration('50')
@@ -101,7 +101,7 @@ let mouseout = function(d) {
       .style("text-anchor", "middle")
       .style('fill', 'darkRed')
       .style("font-size", "15px")
-      .text("Frequency");
+      .text("# Releases");
   
   // TODO: Add chart title
   svg1.append("text")

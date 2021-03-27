@@ -1,6 +1,8 @@
 import random
 import pandas as pd
+import numpy as np
 import os
+from collections import Counter
 
 def load_file(file_path):
     # TODO: Use pandas to load data from the file.
@@ -75,8 +77,109 @@ def create_years(file_path):
     df_years.to_csv(output_path, index = False, header = "year")
 
 
+
+def average_runtime_per_year(file_path):
+    #load data from the csv file.
+    df = pd.read_csv(file_path, skip_blank_lines=True).dropna()
+
+    #path to output csv
+    path = '/Users/aaron/Desktop/csci1951a/hw6-dataviz-aaronwangj/data'
+    output_path = os.path.join(path,'movie_durations_by_year.csv')
+
+    df = df.groupby("type").get_group("Movie")
+    df['duration'] = df['duration'].str[:-4].astype(float)
+
+    output = []
+
+    years_grouped = df.groupby("release_year")
+
+    for group_name, df_group in years_grouped:
+        output.append([group_name,df_group["duration"].mean()])
+    print(output)
+
+    output = np.array(output)
+
+    output = pd.DataFrame(output)
+
+    output.to_csv(output_path, index = False, header = ["year", "count"])
+
+
+def director_actor_pairs(file_path):
+    #load data from the csv file.
+    df = pd.read_csv(file_path, skip_blank_lines=True).dropna()
+
+    #path to output csv
+    path = '/Users/aaron/Desktop/csci1951a/hw6-dataviz-aaronwangj/data'
+    output_path = os.path.join(path,'director_actor_pairs.csv')
+
+    df = df.groupby("type").get_group("Movie")
+    df = df.filter(['director', 'cast'])
+
+    # all_directors = df['director']
+    # all_actors = df['cast']
+
+    # for key, value in all_directors.iteritems():
+    #     print(value)
+
+    result = [f(x, y) for x, y in zip(df['director'], df['cast'])]
+
+    new_result = []
+
+    for i in result:
+        new_result = new_result + i
+    
+    print(new_result)
+
+    
+    output = Counter([tuple(i) for i in new_result])
+
+    # (unique, counts) = np.unique(new_result, return_counts=True)
+
+    # frequencies = np.asarray((unique, counts)).T
+
+    output = list(output.items())
+
+    output = np.array(output)
+
+    output = pd.DataFrame(output)
+
+    output.to_csv(output_path, index = False, header = ['pair', 'count'])
+
+def f(x,y):
+    x = x.split(", ")
+    y = y.split(", ")
+
+    output = []
+
+    for i in x:
+        for j in y:
+            output.append([i, j])
+            # print([i,j])
+    
+    return output
+
+
+
+    
+
+
+    # output = []
+    # print(df['cast'])
+
+
+    # for group_name, df_group in years_grouped:
+    #     output.append([group_name,df_group["duration"].mean()])
+    # print(output)
+
+    # output = np.array(output)
+
+    # output = pd.DataFrame(output)
+
+    # output.to_csv(output_path, index = False, header = ["year", "count"])
+
+
 def main():
-    create_years("/Users/aaron/Desktop/csci1951a/hw6-dataviz-aaronwangj/data/netflix.csv")
+    director_actor_pairs("/Users/aaron/Desktop/csci1951a/hw6-dataviz-aaronwangj/data/netflix.csv")
 
 if __name__ == "__main__":
     main()
