@@ -1,6 +1,6 @@
 // Add your JavaScript code here
 
-let filenames2 = ["../data/movie_durations_by_year.csv", "../data/movie_durations_by_year.csv"];
+let filenames2 = ["data/movie_durations_by_year.csv", "data/movie_durations_by_year.csv"];
 
 let svg2 = d3.select("#graph2")
 .append("svg")

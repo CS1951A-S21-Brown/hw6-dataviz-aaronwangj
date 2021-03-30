@@ -3,7 +3,7 @@ const MAX_WIDTH = Math.max(1080, window.innerWidth);
 const MAX_HEIGHT = 720;
 const margin = {top: 40, right: 100, bottom: 40, left: 175};
 const NUM_EXAMPLES = 20;
-let filenames = ["../data/movie_genres.csv", "../data/show_genres.csv"];
+let filenames = ["data/movie_genres.csv", "data/show_genres.csv"];
 
 // Assumes the same graph width, height dimensions as the example dashboard. Feel free to change these if you'd like
 let graph_1_width = (MAX_WIDTH / 2) + 200, graph_1_height = 350;
